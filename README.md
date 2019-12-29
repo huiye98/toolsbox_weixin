@@ -11,9 +11,9 @@
 
 #### 页面架构
 
-![1577629407003](C:\Users\yehui\AppData\Roaming\Typora\typora-user-images\1577629407003.png)
+![image_1](https://github.com/huiye98/toolsbox_weixin/blob/master/toolsbox/images/README_images/image_1.png)
 
-![1577629622706](C:\Users\yehui\AppData\Roaming\Typora\typora-user-images\1577629622706.png)
+![image_2](https://github.com/huiye98/toolsbox_weixin/blob/master/toolsbox/images/README_images/image_2.png)
 
 #### 新建页面：
 
