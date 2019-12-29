@@ -1,0 +1,8 @@
+<!--toolsbox/pages/aboutMe/aboutMe.wxml-->
+<!-- <text>toolsbox/pages/aboutMe/aboutMe.wxml</text> -->
+  <!-- 即时通信 -->
+  <view class="uploader">
+    <navigator url="../im/room/room" open-type="navigate" class="uploader-text">
+      <text>客服反馈</text>
+    </navigator>
+  </view>
