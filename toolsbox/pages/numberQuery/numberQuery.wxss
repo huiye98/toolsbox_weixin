@@ -1,1 +1,4 @@
 /* miniprogram/pages/numberQuery/numberQuery.wxss */
+.query_text{
+    background-color: aquamarine;
+}

@@ -14,7 +14,8 @@
     "pages/im/im",
     "pages/im/room/room",
     "pages/numberQuery/numberQuery",
-    "pages/aboutMe/aboutMe"
+    "pages/aboutMe/aboutMe",
+    "pages/wasteClassify/wasteClassify"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

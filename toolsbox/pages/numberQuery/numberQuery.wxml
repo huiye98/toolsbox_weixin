@@ -1,2 +1,13 @@
 <!--miniprogram/pages/numberQuery/numberQuery.wxml-->
 <text>归属地查询</text>
+<input type="text" id="numberInput" class="input" value="number" placeholder="请输入手机号码"/>
+<button class="btn" type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="onTap">
+    查询
+</button>
+<view class="query_text">
+    <text class=""> 省份：{{region}} </text>
+    <text class=""> 城市：{{city}} </text>
+    <p class=""> 运营商：{{opeartor}} </p>
+    <p class=""> 区号：{{area}} </p>
+    <p class=""> 邮编：{{post}} </p>
+</view>

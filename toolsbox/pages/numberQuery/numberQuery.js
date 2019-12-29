@@ -1,5 +1,12 @@
 // miniprogram/pages/numberQuery/numberQuery.js
 Page({
+    data:{
+        region:"r",
+        city:"c",
+        operator:"o",
+        area:"a",
+        post:"p"
+    }
 
 //   /**
 //    * 页面的初始数据
