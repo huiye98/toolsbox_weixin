@@ -1,10 +1,13 @@
 <!--toolsbox/pages/aboutMe/aboutMe.wxml-->
 <!-- <text>toolsbox/pages/aboutMe/aboutMe.wxml</text> -->
-  <!-- 即时通信 -->
+
   <!-- 头像，用户名 -->
+  <!-- 收货地址 -->
+  
+  <button open-type="contact" class="uploader-text">ToolsBox 客服</button>
   <view class="uploader">
     <navigator url="../im/room/room" open-type="navigate" class="uploader-text">
-      <text>客服反馈</text>
+      <text>少年，聊个五毛钱？</text>
     </navigator>
   </view>
 

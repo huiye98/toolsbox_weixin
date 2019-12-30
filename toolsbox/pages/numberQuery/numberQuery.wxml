@@ -1,5 +1,5 @@
 <!-- miniprogram/pages/numberQuery/numberQuery.wxml -->
-
+<br/>
 <mp-cell prop="mobile" title="手机号" ext-class=" weui-cell_vcode">
     <input type="number" bindinput="onInputChange" data-field="mobile" class="weui-input" placeholder="  请输入手机号" />
     <view slot="footer" class="weui-vcode-btn">

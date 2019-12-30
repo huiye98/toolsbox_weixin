@@ -1,2 +1,7 @@
 <!--toolsbox/pages/drawLots/drawLots.wxml-->
-<text>toolsbox/pages/drawLots/drawLots.wxml</text>
+<view class="container">
+  <image src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/img_bg_1.jpg'></image>
+  <view class='up'>
+    text ....
+  </view>
+</view>

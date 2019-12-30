@@ -10,7 +10,7 @@ Page({
     // chatRoomEnvId: 'release-f8415a',
     chatRoomCollection: 'chatroom',
     chatRoomGroupId: 'demo',
-    chatRoomGroupName: 'Tools Box 客服',
+    chatRoomGroupName: 'ToolsBox 粉丝群',
 
     // functions for used in chatroom components
     onGetUserInfo: null,
