@@ -1,7 +1,51 @@
-<!--toolsbox/pages/drawLots/drawLots.wxml-->
+<!-- toolsbox/pages/drawLots/drawLots.wxml -->
 <view class="container">
   <image src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/img_bg_1.jpg'></image>
-  <view class='up'>
-    text ....
+  <view class='up page'>
+    <view class="page__hd info">
+      <view class="page__title">抽签规则</view>
+      <view class="page__desc">输入主题，选择要抽的号码的最小值和最大值，以及要抽出的人数，我们将保证随机为您抽取您设置的结果。</view>
+    </view>
+    <!-- <view class="info">
+      <text>输入主题，选择抽签总数和要抽出的人数，将为您抽取您设置的结果。</text>
+    </view> -->
+    <!-- <br /> -->
+    <view class="page__bd">
+      <mp-form id="form">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <input bindinput="themeChange" class="weui-input" placeholder="请输入主题,如学号为几的同学答题" />
+            </view>
+          </view>
+        </view>
+        <mp-cell prop="select" title="抽取人数" ext-class="">
+          <input type="number" bindinput="selectChange" data-field="select" class="weui-input" placeholder="要抽取的号码数，默认1" />
+        </mp-cell>
+        <mp-cell prop="min" title="起始号码" ext-class="">
+          <input type="number" bindinput="minChange" data-field="min" class="weui-input" placeholder="起始号码，默认1" />
+        </mp-cell>
+        <mp-cell prop="max" title="结束号码" ext-class="">
+          <input type="number" bindinput="maxChange" data-field="max" class="weui-input" placeholder="结束号码，默认100" />
+        </mp-cell>
+        <!-- <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_switch">
+            <view class="weui-cell__bd">放回抽取</view>
+            <view class="weui-cell__ft">
+              <switch checked="checked" bindchange="switchChange" />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            </view>
+          </view>
+        </view> -->
+        <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" bindtap="submitForm">开始抽签</button>
+        </view>
+        <view wx:if="{{result}}">
+          <text>{{theme}}</text>
+          <scroll-view scroll-y="true" style="height: 300rpx;">
+            <text wx:for="{{result}}">{{item}}   </text>
+          </scroll-view>
+        </view>
+      </mp-form>
+    </view>
   </view>
 </view>

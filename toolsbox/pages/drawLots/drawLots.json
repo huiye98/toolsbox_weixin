@@ -1,8 +1,12 @@
 {
   "navigationBarTitleText": "谁是幸运儿",
+  "component": true,
   "usingComponents": {
     "mp-icon": "../weui-miniprogram/icon/icon",
     "mp-cell": "../weui-miniprogram/cell/cell",
-    "mp-cells": "../weui-miniprogram/cells/cells"
+    "mp-cells": "../weui-miniprogram/cells/cells",
+    "mp-checkbox": "../weui-miniprogram/checkbox/checkbox",
+    "mp-checkbox-group": "../weui-miniprogram/checkbox-group/checkbox-group",
+    "mp-form": "../weui-miniprogram/form/form"
   }
 }
