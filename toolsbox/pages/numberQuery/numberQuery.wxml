@@ -10,7 +10,7 @@
 <icon type="info" size="20"/>
 <text class="tips">{{msg}}</text>
 </view>
-<button size="mini" type="default" bindtap="onQuery" disabled="{{disabled}}">查询记录</button>
+<button size="mini" type="default" bindtap="onQuery" disabled="{{disabled}}">查询归属地</button>
 
 <mp-cells ext-class="my-cells" title="查询结果" wx:if="{{queryResult}}">
     <mp-cell value="省份" footer="{{region}}"></mp-cell>

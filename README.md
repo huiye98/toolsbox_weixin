@@ -1,9 +1,21 @@
+# 开发过程记录
+
+##### 要做的功能的page已经全部建好了，只要在对应文件夹里面进行修改
+## 用到的组件
+### 原生的基础组件
+##### icon
+##### input(type = number/text/...)
+
+### we-ui组件
+##### icon
+##### cell/cells(item的显示，todolist(有左滑删除功能？)或者查询结果展示可以用这个)
+
+
 # 开发基础知识
 
 ## 官方教程
 
 快速开始： https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/ 
-
 
 ### 基本架构
 
@@ -15,15 +27,6 @@
 
 ![image_2](https://github.com/huiye98/toolsbox_weixin/blob/master/toolsbox/images/README_images/image_2.png)
 
-
-## 用到的组件
-### 原生的基础组件
-#### icon
-#### input(type = number/text/...)
-
-### we-ui组件
-#### icon
-#### cell/cells(item的显示，todolist(有左滑删除功能？)或者查询结果展示可以用这个)
 
 #### 新建页面：
 
