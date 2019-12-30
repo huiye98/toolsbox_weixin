@@ -6,3 +6,5 @@
       <text>客服反馈</text>
     </navigator>
   </view>
+  
+<!-- 使用weui里面的扩展组件，json里面写了use component ，用<map-dialog> 使用 -->

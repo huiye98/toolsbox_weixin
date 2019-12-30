@@ -19,7 +19,7 @@
 
 右键pages，新建目录，在新建的目录右键，新建page，然后在pages/index/index.wxml里面添加新页面的入口就行
 
-
+使用weui: https://developers.weixin.qq.com/miniprogram/dev/extended/weui/badge.html
 
 **总应用**和每个**页面**都会有：JSON/JS/WXML/WXSS四个文件
 
