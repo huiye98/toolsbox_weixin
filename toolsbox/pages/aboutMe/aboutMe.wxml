@@ -1,10 +1,11 @@
 <!--toolsbox/pages/aboutMe/aboutMe.wxml-->
 <!-- <text>toolsbox/pages/aboutMe/aboutMe.wxml</text> -->
   <!-- 即时通信 -->
+  <!-- 头像，用户名 -->
   <view class="uploader">
     <navigator url="../im/room/room" open-type="navigate" class="uploader-text">
       <text>客服反馈</text>
     </navigator>
   </view>
-  
+
 <!-- 使用weui里面的扩展组件，json里面写了use component ，用<map-dialog> 使用 -->

@@ -1,5 +1,8 @@
 <!--miniprogram/pages/numberQuery/numberQuery.wxml-->
 <text>归属地查询</text>
+
+
+
 <input type="text" id="numberInput" class="input" value="number" placeholder="请输入手机号码"/>
 <button class="btn" type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="onTap">
     查询

@@ -1,4 +1,4 @@
 <!--toolsbox/pages/wasteClassify/wasteClassify.wxml-->
 <!-- 到时候添加科杰的webview,调试时需在详情-本地设置-勾选不校验合法域名.... -->
 
-<web-view src="https://www.baidu.com/"></web-view>
+<web-view src="http://139.9.124.104:3000/"></web-view>

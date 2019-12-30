@@ -62,10 +62,45 @@
     </navigator>
   </view>
 
-    <!-- 垃圾分类 -->
+  <!-- 垃圾分类 -->
   <view class="uploader">
     <navigator url="../wasteClassify/wasteClassify" open-type="navigate" class="uploader-text">
       <text>垃圾分类</text>
+    </navigator>
+  </view>
+
+  <!-- 抓阄 -->
+  <view class="uploader">
+    <navigator url="../drawLots/drawLots" open-type="navigate" class="uploader-text">
+      <text>抓阄</text>
+    </navigator>
+  </view>
+
+  <!-- 手持弹幕 -->
+  <view class="uploader">
+    <navigator url="../handDanmu/handDanmu" open-type="navigate" class="uploader-text">
+      <text>手持弹幕</text>
+    </navigator>
+  </view>
+
+  <!-- 天气预报 -->
+  <view class="uploader">
+    <navigator url="../weatherCast/weatherCast" open-type="navigate" class="uploader-text">
+      <text>天气预报 </text>
+    </navigator>
+  </view>
+
+  <!-- 待办事项 -->
+  <view class="uploader">
+    <navigator url="../todoLists/todoLists" open-type="navigate" class="uploader-text">
+      <text>待办事项</text>
+    </navigator>
+  </view>
+
+  <!-- 番茄时钟 -->
+  <view class="uploader">
+    <navigator url="../tomatoTimer/tomatoTimer" open-type="navigate" class="uploader-text">
+      <text>番茄时钟</text>
     </navigator>
   </view>
 

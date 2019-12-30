@@ -15,7 +15,12 @@
     "pages/im/room/room",
     "pages/numberQuery/numberQuery",
     "pages/aboutMe/aboutMe",
-    "pages/wasteClassify/wasteClassify"
+    "pages/wasteClassify/wasteClassify",
+    "pages/weatherCast/weatherCast",
+    "pages/drawLots/drawLots",
+    "pages/handDanmu/handDanmu",
+    "pages/todoLists/todoLists",
+    "pages/tomatoTimer/tomatoTimer"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
