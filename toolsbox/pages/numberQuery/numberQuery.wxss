@@ -2,3 +2,7 @@
 .query_text{
     background-color: aquamarine;
 }
+
+.query_container{
+    background-color: aquamarine;
+}

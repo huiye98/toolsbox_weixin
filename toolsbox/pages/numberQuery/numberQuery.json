@@ -1,5 +1,8 @@
 {
+  "navigationBarTitleText": "归属地查询",
   "usingComponents": {
-    "mp-searchbar": "../weui-miniprogram/searchbar/searchbar"
+    "mp-icon": "../weui-miniprogram/icon/icon",
+    "mp-cell": "../weui-miniprogram/cell/cell",
+    "mp-cells": "../weui-miniprogram/cells/cells"
   }
 }

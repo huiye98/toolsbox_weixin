@@ -1,16 +1,21 @@
-<!--miniprogram/pages/numberQuery/numberQuery.wxml-->
-<text>归属地查询</text>
+<!-- miniprogram/pages/numberQuery/numberQuery.wxml -->
 
-
-
-<input type="text" id="numberInput" class="input" value="number" placeholder="请输入手机号码"/>
-<button class="btn" type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="onTap">
-    查询
-</button>
-<view class="query_text">
-    <text class=""> 省份：{{region}} </text>
-    <text class=""> 城市：{{city}} </text>
-    <p class=""> 运营商：{{opeartor}} </p>
-    <p class=""> 区号：{{area}} </p>
-    <p class=""> 邮编：{{post}} </p>
+<mp-cell prop="mobile" title="手机号" ext-class=" weui-cell_vcode">
+    <input type="number" bindinput="onInputChange" data-field="mobile" class="weui-input" placeholder="  请输入手机号" />
+    <view slot="footer" class="weui-vcode-btn">
+        <mp-icon icon="contacts" color="black" size="{{20}}"></mp-icon>
+    </view>
+</mp-cell>
+<view  wx:if="{{msg}}">
+<icon type="info" size="20"/>
+<text class="tips">{{msg}}</text>
 </view>
+<button size="mini" type="default" bindtap="onQuery" disabled="{{disabled}}">查询记录</button>
+
+<mp-cells ext-class="my-cells" title="查询结果" wx:if="{{queryResult}}">
+    <mp-cell value="省份" footer="{{region}}"></mp-cell>
+    <mp-cell value="城市" footer="{{city}}"></mp-cell>
+    <mp-cell value="运营商" footer="{{operator}}"></mp-cell>
+    <mp-cell value="区号" footer="{{area}}"></mp-cell>
+    <mp-cell value="邮编" footer="{{post}}"></mp-cell>
+</mp-cells>

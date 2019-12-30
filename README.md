@@ -15,6 +15,16 @@
 
 ![image_2](https://github.com/huiye98/toolsbox_weixin/blob/master/toolsbox/images/README_images/image_2.png)
 
+
+## 用到的组件
+### 原生的基础组件
+#### icon
+#### input(type = number/text/...)
+
+### we-ui组件
+#### icon
+#### cell/cells(item的显示，todolist(有左滑删除功能？)或者查询结果展示可以用这个)
+
 #### 新建页面：
 
 右键pages，新建目录，在新建的目录右键，新建page，然后在pages/index/index.wxml里面添加新页面的入口就行
