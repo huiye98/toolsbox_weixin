@@ -1,1 +1,136 @@
-/* toolsbox/pages/handDanmu/handDanmu.wxss */
+page {
+  color: white;
+  font: 30rpx;
+  background-color: black;
+}
+
+.container {
+  width: 100vh;
+  height: 100vw;
+  background-color: #000;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  line-height: 1;
+}
+
+.danmu {
+  padding-left: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  white-space: nowrap;
+  margin-top: -.5em;
+  animation-play-state:paused;
+}
+
+.settingcontainer {
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  background-color: #000;
+  transition: all 0.5s;
+}
+
+.inputtext {
+  height: 50rpx;
+  flex-basis: 60%;
+  border: 5rpx solid white;
+  border-radius: 1.5em;
+  padding: 0 20rpx;
+}
+
+.panel-container {
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20rpx;
+  transform: translate3d(0, 100%, 0);
+  transition: all 0.5s;
+}
+
+.panel {
+  /* text-align: center; */
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+.paneltitle{
+  width:25%
+}
+.panel scroll-view{
+  width:77%
+}
+.color {
+  margin-top: 10rpx;
+  display: inline-flex;
+  display: -webkit-inline-flex;
+  white-space: nowrap;
+  height: 60rpx;
+  transition: all 0.5s;
+}
+
+.color view {
+  display: inline-block;
+  font-size: 24rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background-color: transparent;
+  overflow: hidden;
+  margin: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.color .active {
+  border: 2px solid yellow
+}
+.size view ,.speed view {
+  display: inline-block;
+  /* font-size: 24rpx; */
+  /* width: 60rpx;
+  height: 60rpx;
+  border-radius: 60rpx; */
+  text-align: center;
+  line-height: 60rpx;
+  background-color: transparent;
+  overflow: hidden;
+  margin: 0 20rpx;
+  /* box-sizing: border-box;
+  border: 2rpx solid white; */
+}
+.size .active,.speed .active{
+   color:yellow;
+}
+.small{
+  font-size: 20rpx
+}
+.normal{
+  font-size: 30rpx
+}
+.big{
+  font-size: 50rpx
+}
+.superbig{
+  font-size: 70rpx
+}
+.setting-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30rpx;
+}
+
+.hint {
+  width: 100%;
+  color: red;
+  font-size: 0.8em;
+  text-align: center;
+  line-height: 1.5em;
+  margin: 30rpx 0;
+}

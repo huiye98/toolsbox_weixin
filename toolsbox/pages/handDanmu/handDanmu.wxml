@@ -1,2 +1,37 @@
-<!--toolsbox/pages/handDanmu/handDanmu.wxml-->
-<text>toolsbox/pages/handDanmu/handDanmu.wxml</text>
+<view class="container" bindtap="toggleBar">
+  <text class='danmu' animation="{{Scroll}}" style='animation-play-state:{{is_paused?"paused":"running"}};color:{{colorArr[colorIndex].value}};font-size:{{sizeArr[sizeIndex].value}}vw;'>{{displayText}}</text>
+</view>
+
+
+<view class="settingcontainer" style='transform: translate3d(0,{{barAmt}}%,0);'>
+  <view class='hint' bindtap="toggleBar">{{hintText}}</view>
+  <view class='setting-bar'>
+    <text bindtap="setting">设置</text>
+    <input class="inputtext" placeholder="弹幕发射" catchconfirm="textInput" catchfocus="focus" bindblur='onblur'></input>
+  </view>
+</view>
+
+<view class="panel-container" style='transform: translate3d(0,{{panelAmt}}%,0);' bindtap="toggleBar">
+  <view class='panel hint'>
+   点击空白处隐藏
+  </view>
+  <view class='panel'>
+    <view class="paneltitle" space="nbsp" decode="true">速度 ---></view>
+    <scroll-view class="speed" scroll-x="true" id="speed">
+      <!-- <view wx:for="{{speedArr}}" wx:key="" data-index="{{index}}" style="" catchtap="changeSpeed">{{item}}</view> -->
+      <view wx:for="{{speedArr}}" wx:key="" class="{{item.active?'active':''}}" data-index="{{index}}" catchtap="changeSpeed">{{item.name}}</view>
+    </scroll-view>
+  </view>
+  <view class='panel'>
+  <view class="paneltitle" space="nbsp" decode="true">字号 ---></view>
+    <scroll-view class="size" scroll-x="true" id="size">
+      <view wx:for="{{sizeArr}}" wx:key="" class="{{item.active?'active':''}} {{item.class}}" data-index="{{index}}" catchtap="changeSize">{{item.name}}</view>
+    </scroll-view>
+  </view>
+  <view class='panel'>
+    <view class="paneltitle" space="nbsp" decode="true">颜色 ---></view>
+    <scroll-view class="color" scroll-x="true" id="color">
+      <view wx:for="{{colorArr}}" wx:key="" class="{{item.active?'active':''}}" data-index="{{index}}" catchtap="changeColor" style="background-color:{{item.value}}"></view>
+    </scroll-view>
+  </view>
+</view>
