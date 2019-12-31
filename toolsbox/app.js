@@ -15,6 +15,17 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {
+      // 是否保持常亮，离开小程序失效
+      keepscreenon: false,
+      systeminfo: {},
+      isIPhoneX: false,
+      key: '96f656bf6cac4e458c9d2caf79a6ee2c',
+      weatherIconUrl: 'https://cdn.heweather.com/cond_icon/',
+      requestUrl: {
+        weather: 'https://free-api.heweather.com/s6/weather',
+        hourly: 'https://free-api.heweather.com/s6/weather/hourly',
+      },
+    }
   }
 })

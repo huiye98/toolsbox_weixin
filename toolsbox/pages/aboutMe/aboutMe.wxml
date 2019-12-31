@@ -1,14 +1,16 @@
 <!--toolsbox/pages/aboutMe/aboutMe.wxml-->
 <!-- <text>toolsbox/pages/aboutMe/aboutMe.wxml</text> -->
 
-  <!-- 头像，用户名 -->
-  <!-- 收货地址 -->
-  
-  <button open-type="contact" class="uploader-text">ToolsBox 客服</button>
-  <view class="uploader">
-    <navigator url="../im/room/room" open-type="navigate" class="uploader-text">
-      <text>少年，聊个五毛钱？</text>
-    </navigator>
-  </view>
+<!-- 头像，用户名 -->
+<!-- 小程序码 -->
+<view class="guide">
+  <image src="{{wxacodeSrc}}" mode="aspectFit"></image>
+</view>
+<button open-type="contact" class="uploader-text">点击咨询 ToolsBox 客服</button>
+<view class="uploader">
+  <navigator url="../im/room/room" open-type="navigate" class="uploader-text">
+    <text>少年，聊个五毛钱？</text>
+  </navigator>
+</view>
 
 <!-- 使用weui里面的扩展组件，json里面写了use component ，用<map-dialog> 使用 -->
