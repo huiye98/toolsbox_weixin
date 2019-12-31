@@ -11,7 +11,7 @@ Page({
         post: "",
         queryResult: false,
         msg: null,
-        disabled:false
+        disabled:true
     },
 
     onInputChange: function (e) {

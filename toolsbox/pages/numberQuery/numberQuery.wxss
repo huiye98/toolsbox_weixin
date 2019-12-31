@@ -6,3 +6,12 @@
 .query_container{
     background-color: aquamarine;
 }
+
+page{
+    overflow:hidden;
+    position: fixed;
+}
+.up{
+  position: absolute;
+  z-index: 1;
+}

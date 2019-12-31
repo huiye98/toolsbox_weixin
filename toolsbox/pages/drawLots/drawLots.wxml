@@ -32,7 +32,7 @@
           <view class="weui-cell weui-cell_switch">
             <view class="weui-cell__bd">放回抽取</view>
             <view class="weui-cell__ft">
-              <switch checked="checked" bindchange="switchChange" />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+              <switch checked="checked" bindchange="switchChange" />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
             </view>
           </view>
         </view> -->
@@ -45,7 +45,7 @@
         <view wx:if="{{result}}">
           <text>{{theme}}</text>
           <scroll-view scroll-y="true" style="height: 300rpx;">
-            <text wx:for="{{result}}"> {{item}}  </text>
+            <text wx:for="{{result}}">{{item}}&nbsp;&nbsp;</text>
           </scroll-view>
         </view>
       </mp-form>
