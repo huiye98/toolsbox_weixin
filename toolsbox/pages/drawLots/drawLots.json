@@ -7,6 +7,7 @@
     "mp-cells": "../weui-miniprogram/cells/cells",
     "mp-checkbox": "../weui-miniprogram/checkbox/checkbox",
     "mp-checkbox-group": "../weui-miniprogram/checkbox-group/checkbox-group",
-    "mp-form": "../weui-miniprogram/form/form"
+    "mp-form": "../weui-miniprogram/form/form",
+    "mp-dialog": "../weui-miniprogram/dialog/dialog"
   }
 }

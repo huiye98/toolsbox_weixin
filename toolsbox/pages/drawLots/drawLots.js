@@ -10,7 +10,9 @@ Page({
     select: 1,
     putback: false,//默认不放回
     result: null,
-    theme: "抽签结果如下"
+    theme: "抽签结果如下",
+    showDialog: false,
+    dailogButton: [{ text: "完整结果" }]
   },
 
   themeChange: function (e) {
@@ -38,9 +40,15 @@ Page({
       putback: e.detail.value//true不放回，false放回
     })
   },
+  tapDialogButton: function (e) {
+    // console.log(e.detail)true
+      this.setData({
+        showDialog: false//true不放回，false放回
+      })
+  },
   submitForm() {
     this.selectComponent('#form').validate((valid, errors) => {
-      console.log('valid', valid, errors)
+      // console.log('valid', valid, errors)
       if (!valid) {
         const firstError = Object.keys(errors)
         if (firstError.length) {
@@ -54,7 +62,7 @@ Page({
           max = this.data.max,
           select = this.data.select,
           putback = this.data.putback
-        while (select !== 0) {
+        while(select !== 0) {
           var random = parseInt(Math.random() * (max - min + 1) + min) + 1
           if (putback) {
             res.push(random)
@@ -67,6 +75,7 @@ Page({
         }
         console.log(res)
         this.setData({
+          showDialog: true,
           result: res
         })
       }

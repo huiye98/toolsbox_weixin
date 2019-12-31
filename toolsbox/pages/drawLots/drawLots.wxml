@@ -39,10 +39,13 @@
         <view class="weui-btn-area">
           <button class="weui-btn" type="primary" bindtap="submitForm">开始抽签</button>
         </view>
+        <mp-dialog title="抽奖结果" show="{{showDialog}}" bindbuttontap="tapDialogButton" mask="{{true}}" buttons="{{dailogButton}}">
+          <view>恭喜 {{result[0]}} 号被抽到了！</view>
+        </mp-dialog>
         <view wx:if="{{result}}">
           <text>{{theme}}</text>
           <scroll-view scroll-y="true" style="height: 300rpx;">
-            <text wx:for="{{result}}">{{item}}   </text>
+            <text wx:for="{{result}}"> {{item}}  </text>
           </scroll-view>
         </view>
       </mp-form>
