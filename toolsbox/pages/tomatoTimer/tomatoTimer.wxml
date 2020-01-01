@@ -2,7 +2,7 @@
 <!-- <Select prop-array='{{selectArray}}' bind:data='getPerDate'></Select> -->
  <view class='top-bar'>
  <!-- <view class='selectTime' bindtap='selectTime'></view> -->
-    <image src='https://cdn.nlark.com/yuque/0/2020/png/407666/1577865109460-ec712513-35fc-4b54-94f1-3537e990f8ad.png' class="selectTime" bindtap='selectTime'> 时长选择 </image>
+    <image src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/clock-white.svg' class="selectTime" bindtap='selectTime'> 时长选择 </image>
     <view id='timetitle'>总时长：{{hour}}小时{{minute}}分钟</view>
  </view>
 <!-- <image class = 'btn btn-default' open-type='share' loading="{{loading}}" plain="{{plain}}"
@@ -18,6 +18,7 @@
   </picker-view>
   </view>
   <view id='tomatotimer' wx:if="{{showlist[1]['show']}}" >
-    <image src='https://cdn.nlark.com/yuque/0/2020/png/407666/1577860909789-b4a4fa6a-e577-4d3c-b627-2f58d09976ea.png' class="showTime" bindtap='selectTime'> 时长选择 </image>
+    <image src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/tomatobg.svg' class="showTime" bindtap='selectTime'> 时长选择 </image>
     <view class= 'timepanel'>{{nowtime}}</view>
+    <view class='status' bindtap='operateTime'>{{status}}</view>
   </view>

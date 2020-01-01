@@ -6,8 +6,52 @@ page {
   flex-direction: column;
   justify-content: flex-start;
 }
+.logo{
+  width: 200rpx;
+height: 200rpx;
+align-self: center;
 
-.userinfo, .uploader, .tunnel {
+}
+.container{
+  width:100%;
+  margin-top: 100rpx;
+  /* margin:0px 10rpx 30rpx 30rpx */
+}
+.typename{
+  font-size: 35rpx;
+}
+.uploaderlist{
+  display: flex;
+  flex-direction: row
+}
+.uploader{
+  width: 30%;
+  height: 200rpx;
+  margin: 20rpx;
+}
+.icon{
+  height:80rpx;
+  width:100rpx;
+  align-self: center;
+}
+.uploader-text{
+  width: 100%;
+  /* line-height: 52px; */
+  font-size: 25rpx;
+  color:black;
+  /* color: #007aff; */
+  display: flex;
+  text-align: center;
+  flex-direction: column
+}
+.uploader-text text{
+  height:30rpx;
+  margin-top:10rpx;
+}
+
+
+
+.userinfo,  .tunnel {
   margin-top: 40rpx;
   height: 140rpx;
   width: 100%;
@@ -60,8 +104,8 @@ page {
 .userinfo-nickname-wrapper {
   flex: 1;
 }
-
-.uploader, .tunnel {
+/* //.uploader,  */
+.tunnel {
   height: auto;
   padding: 0 0 0 40rpx;
   flex-direction: column;
@@ -69,12 +113,12 @@ page {
   box-sizing: border-box;
 }
 
-.uploader-text, .tunnel-text {
+/* .uploader-text, .tunnel-text {
   width: 100%;
   line-height: 52px;
   font-size: 34rpx;
   color: #007aff;
-}
+} */
 
 .uploader-container {
   width: 100%;

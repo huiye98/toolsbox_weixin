@@ -1,6 +1,6 @@
 @import './weui-miniprogram/weui-wxss/dist/style/weui.wxss';
 /**app.wxss**/
-.container {
+/* .container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -154,4 +154,4 @@ page {
   font-size: 24rpx;
   line-height: 36rpx;
   word-break: break-all;
-}
+} */
