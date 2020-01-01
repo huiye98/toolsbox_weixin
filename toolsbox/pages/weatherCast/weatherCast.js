@@ -8,7 +8,6 @@ Page({
     isIPhoneX: globalData.isIPhoneX,
     message: '',
     cityDatas: {},
-    hourlyDatas: [],
     weatherIconUrl: globalData.weatherIconUrl,
     detailsDic: {
       key: ['tmp', 'fl', 'hum', 'pcpn', 'wind_dir', 'wind_deg', 'wind_sc', 'wind_spd', 'vis', 'pres', 'cloud', ''],
@@ -48,59 +47,45 @@ Page({
     searchText: '',
     // 是否已经弹出
     hasPopped: false,
-    animationMain: {},
-    animationOne: {},
-    animationTwo: {},
-    // animationThree: {},
     // 是否切换了城市
     located: true,
     // 需要查询的城市
     searchCity: '',
     setting: {},
-    bcgImgList: [
-      {
-        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-sunny-big.png',//晴
-        topColor: '#0085e5'
+    bcgImgList: [{
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-sunny-big.png', //晴
       },
       {
-        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-pouring-big.png',//下雨
-        topColor: '#0e202c'
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-pouring-big.png', //下雨
       },
       {
-        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-snowy-big.png',//下雪
-        topColor: '#0f0e1c'
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-snowy-big.png', //下雪
       },
       {
-        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-cloudy-big.png',//多云
-        topColor: '#004092'
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-cloudy-big.png', //多云
       },
       {
-        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-fog-big.png',//雾
-        topColor: '#d3ebf5'
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-fog-big.png', //雾
       },
       {
-        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-yin-big.png',//阴
-        topColor: '#2d2225'
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-yin-big.png', //阴
       },
       {
-        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-cloudy-big.png',//默认
-        topColor: '#b8bab9'
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-cloudy-big.png', //默认多云
       },
     ],
     bcgImgIndex: 0,
     bcgImg: '',
     bcgImgAreaShow: false,
-    bcgColor: '#2d2225',
+    bcgColor: '#018cf2',
     // 粗暴直接：移除后再创建，达到初始化组件的作用
     showHeartbeat: true,
     // heartbeat 时禁止搜索，防止动画执行
     enableSearch: true,
-    openSettingButtonShow: false,
     shareInfo: {},
   },
   success(data, location) {
     this.setData({
-      openSettingButtonShow: false,
       searchCity: location,
     })
     wx.stopPullDownRefresh()
@@ -131,10 +116,6 @@ Page({
               clearTimeout(timer)
               wx.openSetting({})
             }, 2500)
-          } else {
-            this.setData({
-              openSettingButtonShow: true,
-            })
           }
         },
       })
@@ -149,42 +130,21 @@ Page({
     let val = ((res.detail || {}).value || '').replace(/\s+/g, '')
     this.search(val)
   },
-  dance() {
-    this.setData({
-      enableSearch: false,
-    })
-    let heartbeat = this.selectComponent('#heartbeat')
-    heartbeat.dance(() => {
-      this.setData({
-        showHeartbeat: false,
-        enableSearch: true,
-      })
-      this.setData({
-        showHeartbeat: true,
-      })
-    })
-  },
   clearInput() {
     this.setData({
       searchText: '',
     })
   },
   search(val, callback) {
-    if (val === '520' || val === '521') {
-      this.clearInput()
-      this.dance()
-      return
-    }
     wx.pageScrollTo({
       scrollTop: 0,
       duration: 300,
     })
     if (val) {
       this.setData({
-        located: false,
+        located: true,
       })
       this.getWeather(val)
-      this.getHourly(val)
     }
     callback && callback()
   },
@@ -207,7 +167,6 @@ Page({
     wx.getLocation({
       success: (res) => {
         this.getWeather(`${res.latitude},${res.longitude}`)
-        this.getHourly(`${res.latitude},${res.longitude}`)
         callback && callback()
       },
       fail: (res) => {
@@ -231,76 +190,37 @@ Page({
             if (data.now.cond_txt.indexOf('晴') >= 0) {
               this.setData({
                 bcgImg: this.data.bcgImgList[0].src,
-                bcgColor: this.data.bcgImgList[0].topColor,
               })
-              this.setNavigationBarColor()
             } else if (data.now.cond_txt.indexOf('雨') >= 0) {
               this.setData({
                 bcgImg: this.data.bcgImgList[1].src,
-                bcgColor: this.data.bcgImgList[1].topColor,
               })
-              this.setNavigationBarColor()
             } else if (data.now.cond_txt.indexOf('雪') >= 0) {
               this.setData({
                 bcgImg: this.data.bcgImgList[2].src,
-                bcgColor: this.data.bcgImgList[2].topColor,
               })
-              this.setNavigationBarColor()
             } else if (data.now.cond_txt.indexOf('云') >= 0) {
               this.setData({
                 bcgImg: this.data.bcgImgList[3].src,
-                bcgColor: this.data.bcgImgList[3].topColor,
               })
-              this.setNavigationBarColor()
             } else if (data.now.cond_txt.indexOf('雾') >= 0) {
               this.setData({
                 bcgImg: this.data.bcgImgList[4].src,
-                bcgColor: this.data.bcgImgList[4].topColor,
               })
-              this.setNavigationBarColor()
             } else if (data.now.cond_txt.indexOf('阴') >= 0) {
               this.setData({
                 bcgImg: this.data.bcgImgList[5].src,
-                bcgColor: this.data.bcgImgList[5].topColor,
               })
-              this.setNavigationBarColor()
             } else {
               this.setData({
                 bcgImg: this.data.bcgImgList[6].src,
-                bcgColor: this.data.bcgImgList[6].topColor,
               })
-              this.setNavigationBarColor()
             }
-
+            this.setNavigationBarColor()
           } else {
             wx.showToast({
               title: '查询失败',
               icon: 'none',
-            })
-          }
-        }
-      },
-      fail: () => {
-        wx.showToast({
-          title: '查询失败',
-          icon: 'none',
-        })
-      },
-    })
-  },
-  getHourly(location) {
-    wx.request({
-      url: `${globalData.requestUrl.hourly}`,
-      data: {
-        location,
-        key,
-      },
-      success: (res) => {
-        if (res.statusCode === 200) {
-          let data = res.data.HeWeather6[0]
-          if (data.status === 'ok') {
-            this.setData({
-              hourlyDatas: data.hourly || []
             })
           }
         }
@@ -326,54 +246,41 @@ Page({
         if (res.data.now.cond_txt.indexOf('晴') >= 0) {
           this.setData({
             bcgImg: this.data.bcgImgList[0].src,
-            bcgColor: this.data.bcgImgList[0].topColor,
           })
-          this.setNavigationBarColor()
         } else if (res.data.now.cond_txt.indexOf('雨') >= 0) {
           this.setData({
             bcgImg: this.data.bcgImgList[1].src,
-            bcgColor: this.data.bcgImgList[1].topColor,
           })
-          this.setNavigationBarColor()
         } else if (res.data.now.cond_txt.indexOf('雪') >= 0) {
           this.setData({
             bcgImg: this.data.bcgImgList[2].src,
-            bcgColor: this.data.bcgImgList[2].topColor,
           })
-          this.setNavigationBarColor()
         } else if (res.data.now.cond_txt.indexOf('云') >= 0) {
           this.setData({
             bcgImg: this.data.bcgImgList[3].src,
-            bcgColor: this.data.bcgImgList[3].topColor,
           })
-          this.setNavigationBarColor()
         } else if (res.data.now.cond_txt.indexOf('雾') >= 0) {
           this.setData({
             bcgImg: this.data.bcgImgList[4].src,
-            bcgColor: this.data.bcgImgList[4].topColor,
           })
-          this.setNavigationBarColor()
         } else if (res.data.now.cond_txt.indexOf('阴') >= 0) {
           this.setData({
             bcgImg: this.data.bcgImgList[5].src,
-            bcgColor: this.data.bcgImgList[5].topColor,
           })
-          this.setNavigationBarColor()
         } else {
           this.setData({
             bcgImg: this.data.bcgImgList[6].src,
-            bcgColor: this.data.bcgImgList[6].topColor,
           })
-          this.setNavigationBarColor()
         }
+        this.setNavigationBarColor()
       },
     })
   },
   setNavigationBarColor(color) {
-    let bcgColor = color || this.data.bcgColor
+    let bcgColor = this.data.bcgColor
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
-      backgroundColor: this.data.bcgColor,
+      backgroundColor: bcgColor,
     })
   },
   menuMainMove(e) {
@@ -410,27 +317,6 @@ Page({
       pos,
     })
   },
-  getBroadcast(callback) {
-    wx.cloud.callFunction({
-      name: 'getBroadcast',
-      data: {
-        hour: new Date().getHours(),
-      },
-    })
-      .then(res => {
-        let data = res.result.data
-        if (data) {
-          callback && callback(data[0].message)
-        }
-      })
-  },
-  reloadGetBroadcast() {
-    this.getBroadcast((message) => {
-      this.setData({
-        message,
-      })
-    })
-  },
   reloadWeather() {
     if (this.data.located) {
       this.init({})
@@ -442,23 +328,7 @@ Page({
     }
   },
   onShow() {
-    // onShareAppMessage 要求同步返回
-    if (!utils.isEmptyObject(this.data.shareInfo)) {
-      return
-    }
-    wx.cloud.callFunction({
-      name: 'getShareInfo',
-    })
-      .then(res => {
-        let shareInfo = res.result
-        if (shareInfo) {
-          if (!utils.isEmptyObject(shareInfo)) {
-            this.setData({
-              shareInfo,
-            })
-          }
-        }
-      })
+
   },
   onLoad() {
     this.reloadPage()
@@ -479,11 +349,11 @@ Page({
     updateManager.onCheckForUpdate((res) => {
       console.error(res)
     })
-    updateManager.onUpdateReady(function () {
+    updateManager.onUpdateReady(function() {
       wx.showModal({
         title: '更新提示',
         content: '新版本已下载完成，是否重启应用？',
-        success: function (res) {
+        success: function(res) {
           if (res.confirm) {
             updateManager.applyUpdate()
           }
@@ -491,31 +361,6 @@ Page({
       })
     })
   },
-  // showBcgImgArea () {
-  //   this.setData({
-  //     bcgImgAreaShow: true,
-  //   })
-  // },
-  hideBcgImgArea() {
-    this.setData({
-      bcgImgAreaShow: false,
-    })
-  },
-  // chooseBcg (e) {
-  //   let dataset = e.currentTarget.dataset
-  //   let src = dataset.src
-  //   let index = dataset.index
-  //   this.setBcgImg(index)
-  //   wx.setStorage({
-  //     key: 'bcgImgIndex',
-  //     data: index,
-  //   })
-  // },
-  // toCitychoose () {
-  //   wx.navigateTo({
-  //     url: '/pages/citychoose/citychoose',
-  //   })
-  // },
   initSetting(successFunc) {
     wx.getStorage({
       key: 'setting',
@@ -538,107 +383,25 @@ Page({
       this.checkUpdate(setting)
     })
   },
-  onShareAppMessage(res) {
-    let shareInfo = this.data.shareInfo
-    return {
-      title: shareInfo.title || '天气早知道',
-      path: shareInfo.path || '/pages/index/index',
-      imageUrl: '/img/share.jpg',
-    }
-  },
-  menuHide() {
+  searchHide() {
     if (this.data.hasPopped) {
-      this.takeback()
+      console.log("收")
       this.setData({
         hasPopped: false,
       })
     }
   },
-  menuMain() {
+  searchMain() {
     if (!this.data.hasPopped) {
-      this.popp()
+      console.log("放")
       this.setData({
         hasPopped: true,
       })
     } else {
-      this.takeback()
+      console.log("收")
       this.setData({
         hasPopped: false,
       })
     }
-  },
-  menuToCitychoose() {
-    this.menuMain()
-    wx.navigateTo({
-      url: '/pages/citychoose/citychoose',
-    })
-  },
-  menuToSetting() {
-    this.menuMain()
-    wx.navigateTo({
-      url: '/pages/setting/setting',
-    })
-  },
-  menuToAbout() {
-    this.menuMain()
-    wx.navigateTo({
-      url: '/pages/about/about',
-    })
-  },
-  popp() {
-    let animationMain = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'ease-out'
-    })
-    let animationOne = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'ease-out'
-    })
-    let animationTwo = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'ease-out'
-    })
-    let animationFour = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'ease-out'
-    })
-    animationMain.rotateZ(180).step()
-    animationOne.translate(-30, -45).rotateZ(180).opacity(1).step()
-    animationTwo.translate(-75, 0).rotateZ(180).opacity(1).step()
-    animationFour.translate(-30, 45).rotateZ(180).opacity(1).step()
-    this.setData({
-      animationMain: animationMain.export(),
-      animationOne: animationOne.export(),
-      animationTwo: animationTwo.export(),
-      animationFour: animationFour.export(),
-    })
-  },
-  takeback() {
-    let animationMain = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'ease-out'
-    })
-    let animationOne = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'ease-out'
-    })
-    let animationTwo = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'ease-out'
-    })
-    let animationFour = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'ease-out'
-    })
-    animationMain.rotateZ(0).step();
-    animationOne.translate(0, 0).rotateZ(0).opacity(0).step()
-    animationTwo.translate(0, 0).rotateZ(0).opacity(0).step()
-    animationFour.translate(0, 0).rotateZ(0).opacity(0).step()
-    this.setData({
-      animationMain: animationMain.export(),
-      animationOne: animationOne.export(),
-      animationTwo: animationTwo.export(),
-      animationFour: animationFour.export(),
-    })
-  },
+  }
 })

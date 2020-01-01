@@ -1,24 +1,19 @@
 <!--toolsbox/pages/weatherCast/weatherCast.wxml-->
-<view class="container {{isIPhoneX ? 'iphonex-padding' : ''}}" catchtap='menuHide'>
-  <!-- <heartbeat id='heartbeat' wx:if='{{showHeartbeat}}'></heartbeat> -->
+<view class="container {{isIPhoneX ? 'iphonex-padding' : ''}}" catchtap='searchHide'>
   <view class='bcg' style='background: white'></view>
-
-  <!-- <view class='bcg' wx:if='{{!bcgImg}}' style='background: {{bcgColor}}'></view>
-  <image class='bcg' wx:if='{{bcgImg}}' src='{{bcgImg}}' mode='aspectFill'></image> -->
-  <view class='search' wx:if='{{!setting.hiddenSearch && !bcgImgAreaShow}}' style='background:rgba(0, 0, 0, 0)'>
+  <image src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/search.png' class='searchTap' catchtap='searchMain'></image>
+  <view class='search' wx:if='{{!setting.hiddenSearch && !bcgImgAreaShow && hasPopped}}' style='background:rgba(0, 0, 0, 0)'>
     <view class='wrapper'>
-      <image src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/search.png'></image>
-      <input placeholder-class='placeholderClass' confirm-type='search' placeholder='请输入城市名，快速查询天气信息' maxlength='20' bindconfirm='commitSearch' value='{{searchText}}' disabled='{{!enableSearch}}'></input>
+      <input placeholder-class='placeholderClass' focus="{{true}}" confirm-type='search' placeholder='输入城市名，可查询全球各城市天气信息' maxlength='20' bindconfirm='commitSearch' value='{{searchText}}' disabled='{{!enableSearch}}'></input>
     </view>
   </view>
 
   <view class='content' wx:if='{{!bcgImgAreaShow}}' style='margin-top: {{setting.hiddenSearch ? 20 : 60}}px'>
     <view class='info'>
       <view class='city'>
-        <view class='name' bindtap='toCitychoose'>
+        <view class='name'>
           <image wx:if='{{located}}' class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/location.png'></image>
           <view class='val'>{{cityDatas.basic.location || '定位中'}}</view>
-          <!-- <image class='down' src='/img/down.png'></image> -->
         </view>
         <text class='time' wx:if='{{cityDatas.updateTimeFormat}}'>{{cityDatas.updateTimeFormat}} 更新</text>
       </view>
@@ -27,13 +22,16 @@
         <image src="{{bcgImg}}" mode="scaleToFill"></image>
       </view>
       <!-- <view class='temp num' decode='true'>{{cityDatas.now.tmp || '-'}}<text style='font-size:50rpx;position:relative;top:-20px;'>℃</text></view> -->
-      <view class='weather' style="margin-top:10rpx">{{cityDatas.now.cond_txt || '--'}}, {{cityDatas.now.tmp || '-'}} ℃</view>
-      <view class='pm'>
-        <text>能见度 {{cityDatas.now.vis}}</text>
-      </view>
+      <view class='weather' style="margin-top:10rpx">{{cityDatas.now.cond_txt || '--'}}</view>
+      <view class='temp' style="margin-top:10rpx">{{cityDatas.now.tmp || '-'}} ℃</view>
     </view>
     <view class='guide' wx:if='{{cityDatas.daily_forecast}}'>
-      <view class='title'>7 天预报</view>
+      <view class='title'>3 天预报</view>
+      <!-- 
+      <scroll-view scroll-y="true" style="height: 300rpx;">
+        <text wx:for="{{result}}">{{item}}  </text>
+      </scroll-view> 
+      -->
       <view class='guides'>
         <view class='item' wx:for='{{cityDatas.daily_forecast}}' wx:key='{{index}}'>
           <view class='date i'>{{item.date}}</view>
@@ -64,10 +62,5 @@
       </view>
     </view>
   </view>
-  <view wx:if='{{openSettingButtonShow}}' class='openSettingButton'>
-    <image src='/img/unlock.png'></image>
-    <button open-type='openSetting'></button>
-  </view>
-  <!-- 悬浮菜单 -->
 
 </view>
