@@ -1,1 +1,39 @@
-/* toolsbox/pages/tomatoTimer/tomatoTimer.wxss */
+.selectTime{
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 30rpx;
+
+}
+picker-view view{
+  text-align: center;
+  background: transparent
+}
+.top-bar{
+  display: flex
+}
+#timetitle{
+  margin-left: 100rpx;
+  margin-top: 15rpx;
+  font-size: 40rpx;
+
+}
+#tomatotimer{
+  text-align: center;
+  margin-top: 100rpx;
+  position: relative
+}
+.showTime{
+  width: 500rpx;
+  height: 500rpx;
+  position: absolute;
+  left: 125rpx;
+
+}
+.timepanel{
+  width: 450rpx;
+  height: 100rpx;
+  position: absolute;
+  left: 150rpx;
+  top: 168rpx;
+  font-size: 100rpx;
+}
