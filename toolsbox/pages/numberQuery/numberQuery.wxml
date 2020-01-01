@@ -1,25 +1,31 @@
 <!-- miniprogram/pages/numberQuery/numberQuery.wxml -->
 <view class='page'>
   <view class="page__hd">
-    <view class="page__desc" style="margin-left:10rpx;margin-top:30rpx">请输入手机号进行查询</view>
   </view>
   <view class="page__bd">
     <mp-form id="form">
-      <mp-cell prop="mobile" title="" ext-class="">
-        <input type="number" bindinput="onInputChange" data-field="mobile" class="weui-input" placeholder="请输入手机号" />
-        <view slot="footer" class="weui-vcode-btn">
-          <mp-icon icon="contacts" color="black" size="{{20}}"></mp-icon>
+      <view class="weui-cells__title">输入对应国家手机号</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd" style="width: 105px">
+            <picker bindchange="onCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}">
+              <view class="weui-select">{{countryCodes[countryCodeIndex]}}</view>
+            </picker>
+          </view>
+          <view class="weui-cell__bd weui-cell__bd_in-select-before">
+            <input type="number" bindinput="onInputChange" data-field="mobile" class="weui-input" placeholder="请输入号码" />
+          </view>
         </view>
-      </mp-cell>
+      </view>
       <view wx:if="{{msg}}">
         <icon type="info" size="20" />
         <text class="tips">{{msg}}</text>
       </view>
-      <button class="weui-btn" type="primary" bindtap="onQuery" disabled="{{disabled}}">
+      <button class="weui-btn" style="margin-top:25rpx" type="primary" bindtap="onQuery" disabled="{{disabled}}">
         查询归属地
       </button>
       <mp-cells ext-class="my-cells" title="归属地查询结果" wx:if="{{queryResult}}">
-        <mp-cell value="省份" footer="{{region}}"></mp-cell>
+        <mp-cell value="{{region_name[countryCodeIndex]}}" footer="{{region}}"></mp-cell>
         <mp-cell value="城市" footer="{{city}}"></mp-cell>
         <mp-cell value="运营商" footer="{{operator}}"></mp-cell>
         <mp-cell value="区号" footer="{{area}}"></mp-cell>
