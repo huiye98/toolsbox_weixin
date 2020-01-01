@@ -1,7 +1,7 @@
 page{
   width: 100%;
   height: 100%;
-  background: rgb(205,63,66);
+  background: #da5353;
 
 }
 .selectTime{
@@ -16,7 +16,8 @@ picker-view view{
   color:white
 }
 .top-bar{
-  display: flex
+  display: flex;
+  margin-top: 30rpx;
 }
 #timetitle{
   margin-left: 100rpx;

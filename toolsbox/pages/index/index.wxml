@@ -1,5 +1,6 @@
 <!--index.wxml-->
-<image class ='logo' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/my-image.png' mode="aspectFit"></image>
+
+<image class ='logo' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/logo.png' mode="aspectFit"></image>
   <!-- <view class='title'>选择一个工具</view> -->
 <view class='tagcontainer'>
   <view class="mytaglist">
@@ -27,7 +28,6 @@
     </navigator>
   </view>
   </view>
-  <!-- <view class='typename'>效率工具</view> -->
   <view class="mytaglist">
    <!-- 番茄时钟 -->
     <view class="mytag">
