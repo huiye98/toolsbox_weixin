@@ -41,6 +41,8 @@
 }
 
 .copyright {
-  color: dimgray;
   padding: 10rpx;
+  font-weight: 650;
+  font-size: 0.78rem;
+  color:#888
 }

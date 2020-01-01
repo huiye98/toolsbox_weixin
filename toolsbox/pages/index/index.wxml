@@ -1,13 +1,13 @@
 <!--index.wxml-->
 
-<image class ='logo' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/logo.png' mode="aspectFit"></image>
+<image class ='logo' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/logo.png' mode="scaleToFill"></image>
   <!-- <view class='title'>选择一个工具</view> -->
 <view class='tagcontainer'>
   <view class="mytaglist">
     <!-- 手机归属地查询 -->
     <view class="mytag">
       <navigator url="../numberQuery/numberQuery" open-type="navigate" class="mytag-text">
-      <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/phone.svg' mode="aspectFit"></image>
+      <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/phone.svg' mode="scaleToFill"></image>
         <text>手机归属地</text>
       </navigator>
     </view>
@@ -15,15 +15,15 @@
     <!-- 垃圾分类 -->
     <view class="mytag">
       <navigator url="../wasteClassify/wasteClassify" open-type="navigate" class="mytag-text">
-      <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/垃圾桶.png' mode="aspectFit"></image>
-        <text>垃圾分类</text>
+      <image class='icon-trash' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/trash.svg' mode="scaleToFill" ></image>
+        <text style="margin-top:5rpx">垃圾分类</text>
       </navigator>
     </view>
 
       <!-- 天气预报 -->
   <view class="mytag">
     <navigator url="../weatherCast/weatherCast" open-type="navigate" class="mytag-text">
-    <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather.svg' mode="aspectFit"></image>
+    <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather.svg' mode="scaleToFill"></image>
       <text>天气预报 </text>
     </navigator>
   </view>
@@ -32,14 +32,14 @@
    <!-- 番茄时钟 -->
     <view class="mytag">
       <navigator url="../tomatoTimer/tomatoTimer" open-type="navigate" class="mytag-text">
-        <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/clock.svg' mode="aspectFit"></image>
+        <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/clock.svg' mode="scaleToFill"></image>
         <text>番茄时钟</text>
       </navigator>
     </view>
     <!-- 抓阄 -->
     <view class="mytag">
       <navigator url="../drawLots/drawLots" open-type="navigate" class="mytag-text">
-      <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/Dice.svg' mode="aspectFit"></image>
+      <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/Dice.svg' mode="scaleToFill"></image>
         <text>抓阄</text>
       </navigator>
     </view>
@@ -47,7 +47,7 @@
     <!-- 手持弹幕 -->
     <view class="mytag">
       <navigator url="../handDanmu/handDanmu" open-type="navigate" class="mytag-text">
-      <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/danmu.svg' mode="aspectFit"></image>
+      <image class='icon' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/danmu.svg' mode="scaleToFill"></image>
         <text>手持弹幕</text>
       </navigator>
     </view>

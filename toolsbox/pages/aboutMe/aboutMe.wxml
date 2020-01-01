@@ -17,7 +17,7 @@
   </navigator>
 </view>
 <view class='uploader'>
-  <text class="copyright">版权：叶慧/徐卫霞</text>
+  <text class="copyright">版权© 叶慧  徐卫霞</text>
   <!-- <image class='downArrow' src='/img/down.png'></image> -->
 </view>
 <!-- 使用weui里面的扩展组件，json里面写了use component ，用<map-dialog> 使用 -->
