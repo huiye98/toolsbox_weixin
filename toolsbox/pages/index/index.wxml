@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <image class ='logo' src='cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/my-image.png'></image>
   <!-- <view class='title'>选择一个工具</view> -->
-<view class='container'>
+<view class='tagcontainer'>
   <view class="mytaglist">
     <!-- 手机归属地查询 -->
     <view class="mytag">
