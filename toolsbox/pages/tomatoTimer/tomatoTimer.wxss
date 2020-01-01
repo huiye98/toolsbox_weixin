@@ -16,7 +16,8 @@ picker-view view{
   color:white
 }
 .top-bar{
-  display: flex
+  display: flex;
+  margin-top: 30rpx;
 }
 #timetitle{
   margin-left: 100rpx;

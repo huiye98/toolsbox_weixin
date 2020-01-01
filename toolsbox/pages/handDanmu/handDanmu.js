@@ -85,6 +85,10 @@ Page({
   onLoad: function () {
     this.setData({
       windowHeight: wx.getSystemInfoSync().windowHeight
+    });
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: "#d8d4d4",
     })
   },
 
