@@ -1,1 +1,6 @@
 /* toolsbox/pages/aboutMe/aboutMe.wxss */
+@import "../../style/guide.wxss";
+
+.black {
+  color: black;
+}

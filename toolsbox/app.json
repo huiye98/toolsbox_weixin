@@ -5,7 +5,6 @@
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
     "pages/openapi/openapi",
     "pages/openapi/serverapi/serverapi",
@@ -31,7 +30,7 @@
   },
   "tabBar": {
     "color": "#666",
-    "selectedColor": "#56abe4",
+    "selectedColor": "#d81e06",
     "backgroundColor": "#ddd",
     "borderStyle": "black",
     "list": [
@@ -50,6 +49,12 @@
     ],
     "position": "bottom"
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "定位以获取当前位置天气信息"
+    }
+  },
+  "cloud": true,
   "sitemapLocation": "sitemap.json",
   "style": "v2"
 }
