@@ -1,37 +1,37 @@
-<view class="container" bindtap="toggleBar">
-  <text class='danmu' animation="{{Scroll}}" style='animation-play-state:{{is_paused?"paused":"running"}};color:{{colorArr[colorIndex].value}};font-size:{{sizeArr[sizeIndex].value}}vw;'>{{displayText}}</text>
+<view class="container" bindtap="switchbar">
+  <text class='danmu' animation="{{Scroll}}" style='animation-play-state:{{is_paused?"paused":"running"}};color:{{colorlist[colorIndex].value}};font-size:{{sizelist[sizeIndex].value}}vw;'>{{displayText}}</text>
 </view>
 
 
-<view class="settingcontainer" style='transform: translate3d(0,{{barAmt}}%,0);'>
-  <view class='hint' bindtap="toggleBar">{{hintText}}</view>
+<view class="settingcontainer" style='transform: translate3d(0,{{settingY}}%,0);'>
+  <view class='hint' bindtap="switchbar">{{hintText}}</view>
   <view class='setting-bar'>
     <text bindtap="setting">设置</text>
-    <input class="inputtext" placeholder="弹幕发射" catchconfirm="textInput" catchfocus="focus" bindblur='onblur'></input>
+    <input class="inputtext" id = 'danmuinput' placeholder="弹幕发射" catchconfirm="textInput" value="{{userInput}}">{{inputHint}}</input>
   </view>
 </view>
 
-<view class="panel-container" style='transform: translate3d(0,{{panelAmt}}%,0);' bindtap="toggleBar">
+<view class="panel-container" style='transform: translate3d(0,{{selectsY}}%,0);' bindtap="switchbar">
   <view class='panel hint'>
    点击空白处隐藏
   </view>
   <view class='panel'>
     <view class="paneltitle" space="nbsp" decode="true">速度 ---></view>
     <scroll-view class="speed" scroll-x="true" id="speed">
-      <!-- <view wx:for="{{speedArr}}" wx:key="" data-index="{{index}}" style="" catchtap="changeSpeed">{{item}}</view> -->
-      <view wx:for="{{speedArr}}" wx:key="" class="{{item.active?'active':''}}" data-index="{{index}}" catchtap="changeSpeed">{{item.name}}</view>
+      <!-- <view wx:for="{{speedlist}}" wx:key="" data-index="{{index}}" style="" catchtap="changeSpeed">{{item}}</view> -->
+      <view wx:for="{{speedlist}}" wx:key="" class="{{item.active?'active':''}}" data-index="{{index}}" catchtap="changeSpeed">{{item.name}}</view>
     </scroll-view>
   </view>
   <view class='panel'>
   <view class="paneltitle" space="nbsp" decode="true">字号 ---></view>
     <scroll-view class="size" scroll-x="true" id="size">
-      <view wx:for="{{sizeArr}}" wx:key="" class="{{item.active?'active':''}} {{item.class}}" data-index="{{index}}" catchtap="changeSize">{{item.name}}</view>
+      <view wx:for="{{sizelist}}" wx:key="" class="{{item.active?'active':''}} {{item.class}}" data-index="{{index}}" catchtap="changeSize">{{item.name}}</view>
     </scroll-view>
   </view>
   <view class='panel'>
     <view class="paneltitle" space="nbsp" decode="true">颜色 ---></view>
     <scroll-view class="color" scroll-x="true" id="color">
-      <view wx:for="{{colorArr}}" wx:key="" class="{{item.active?'active':''}}" data-index="{{index}}" catchtap="changeColor" style="background-color:{{item.value}}"></view>
+      <view wx:for="{{colorlist}}" wx:key="" class="{{item.active?'active':''}}" data-index="{{index}}" catchtap="changeColor" style="background-color:{{item.value}}"></view>
     </scroll-view>
   </view>
 </view>

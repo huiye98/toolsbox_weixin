@@ -5,19 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    displayText: "弹幕大军来袭",
-    panelFlag: false,
-    barFlag: true,
-    colorIndex: 0,//白色
+    displayText: "弹幕来袭",
+    show_selects: false,
+    show_setting: true,
+    colorIndex: 1,//白色
     speedIndex: 1,//正常速度
     sizeIndex: 1,//正常大小
-    ScrollDuration: 5000,
+    duration: 5000,
     hintText: "点击空白处隐藏",
     textLen: 0,
     animation: {},
     currentSpeed: 0,
     is_paused:'running',
-    sizeArr: [{
+    userInput:'',
+    sizelist: [{
       name: "小",
       value: 25,
       class:'small',
@@ -40,7 +41,7 @@ Page({
       class:'superbig',
       active: false
     }],
-    speedArr: [
+    speedlist: [
     {
       name: "慢",
       value: 7000,
@@ -56,19 +57,13 @@ Page({
       value: 3000,
       active: false
       }
-      // ,
-      // {
-      //   name: "停",
-      //   value: 0,
-      //   active: false
-      // }
     ],
-    colorArr: [{
+    colorlist: [{
       value: "#fff",
-      active: true
+      active: false
     }, {
       value: "#f00",
-      active: false
+        active: true
     }, {
       value: "#DA70D6",
       active: false
@@ -76,7 +71,7 @@ Page({
       value: "#00FFFF",
       active: false
     }, {
-      value: "#1E90FF",
+      value: "#0000FF",
       active: false
     }, {
       value: "#00FF00",
@@ -86,15 +81,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  //捕获页面高度，用于计算滚动速度
   onLoad: function () {
     this.setData({
       windowHeight: wx.getSystemInfoSync().windowHeight
     })
   },
 
-  /**
-   * 查询字幕长度
-   */
+  //计算文本长度，从而计算速度
   getTextLen: function () {
     var query = wx.createSelectorQuery();
     query.select('.danmu').boundingClientRect((obj) => {
@@ -103,9 +97,8 @@ Page({
       })
     }).exec();
   },
-  /**
-   * 清除字幕
-   */
+  
+  // 清屏
   clearScroll: function () {
     clearInterval(timer);
     this.data.animation.translate3d(0, 0, 0).step({
@@ -121,8 +114,8 @@ Page({
    */
   changeColor: function (e) {
     var newIndex = parseInt(e.currentTarget.dataset.index),
-      after = 'colorArr[' + newIndex + '].active',
-      before = 'colorArr[' + this.data.colorIndex + '].active';
+      after = 'colorlist[' + newIndex + '].active',
+      before = 'colorlist[' + this.data.colorIndex + '].active';
 
     this.setData({
       colorIndex: newIndex,
@@ -140,13 +133,13 @@ Page({
     if(newIndex!=3){
       //用户点击停止
       this.clearScroll()
-      currentSpeed = this.data.windowHeight * 2 / this.data.speedArr[newIndex].value
+      currentSpeed = this.data.windowHeight * 2 / this.data.speedlist[newIndex].value
     }
-    var after = 'speedArr[' + newIndex + '].active',
-      before = 'speedArr[' + this.data.speedIndex + '].active';
+    var after = 'speedlist[' + newIndex + '].active',
+      before = 'speedlist[' + this.data.speedIndex + '].active';
     this.setData({
       speedIndex: newIndex,
-      currentSpeed,  //: this.data.windowHeight * 2 / this.data.speedArr[newIndex].value,
+      currentSpeed,  //: this.data.windowHeight * 2 / this.data.speedlist[newIndex].value,
       [before]: false,
       [after]: true
     })
@@ -160,34 +153,32 @@ Page({
   changeSize: function (e) {
     this.clearScroll()
     // 先设置大小
-    var newIndex = parseInt(e.currentTarget.dataset.index),
+    var cindex = parseInt(e.currentTarget.dataset.index),
       currentLen = this.data.textLen,
-      after = 'sizeArr[' + newIndex + '].active',
-      before = 'sizeArr[' + this.data.sizeIndex + '].active';
+      after = 'sizelist[' + cindex + '].active',
+      before = 'sizelist[' + this.data.sizeIndex + '].active';
 
     this.setData({
-      sizeIndex: newIndex,
+      sizeIndex: cindex,
       [before]: false,
       [after]: true
     })
 
-    // 刷新
+    // 重新滚动
     this.updateScroll();
   },
   textInput: function (e) {
 
     this.clearScroll()
-
+  //这里好像删不掉输入的字符，不然会触发value change的事件
     this.setData({
       displayText: e.detail.value
     });
-
-
     this.updateScroll();
+    this.clearinput()
   },
-  /**
-   * 动画控制
-   */
+  
+  //更新滚动
   updateScroll: function () {
     // if (this.data.currentSpeed==0){
     //   clearInterval(timer);
@@ -209,12 +200,14 @@ Page({
     //   return;
     // }
     this.getTextLen();
-    var ScrollH = this.data.windowHeight * 2 + this.data.textLen;
-    this.data.ScrollDuration = parseInt(ScrollH / this.data.currentSpeed);
-    var ScrollAmt = () => {
-      this.data.animation.translate3d(-ScrollH, 0, 0).step({
-        duration: this.data.ScrollDuration
+    var sheight = this.data.windowHeight *2 + this.data.textLen;
+    this.data.duration = parseInt(sheight / this.data.currentSpeed);
+    var singleScroll = () => {
+      //滚过去
+      this.data.animation.translate3d(-sheight, 0, 0).step({
+        duration: this.data.duration
       })
+      //滚回来
       this.data.animation.translate3d(0, 0, 0).step({
         duration: 0
       })
@@ -222,66 +215,58 @@ Page({
         Scroll: this.data.animation.export()
       })
     };
-    ScrollAmt();
+    singleScroll();
     // 循环动画
     timer = setInterval(() => {
-      ScrollAmt();
-      console.log(this.data.currentSpeed)
-    }, this.data.ScrollDuration + 500);
+      singleScroll()
+    }, this.data.duration);
   },
   setting: function () {
-    if (this.data.barFlag) {
+    if (this.data.show_setting) {
       this.setData({
-        barAmt: 100,
-        barFlag: false,
+        settingY: 100,
+        show_setting: false,
       })
     } else {
       this.setData({
-        barAmt: 0,
-        barFlag: true,
+        settingY: 0,
+        show_setting: true,
       })
     }
-    if (this.data.panelFlag) {
+    if (this.data.show_selects) {
       this.setData({
-        panelAmt: 100,
-        panelFlag: false
+        selectsY: 100,
+        show_selects: false
       })
     } else {
       this.setData({
-        panelAmt: 0,
-        panelFlag: true
+        selectsY: 0,
+        show_selects: true
       })
     }
   },
-  toggleBar: function () {
-    if (this.data.barFlag) {
+  switchbar: function () {
+    if (this.data.show_setting) {
       this.setData({
-        barAmt: 100,
-        barFlag: false,
-        panelFlag: false,
-        panelAmt: 100
+        settingY: 100,
+        show_setting: false,
+        show_selects: false,
+        selectsY: 100
       })
     } else {
       this.setData({
-        barAmt: 0,
-        barFlag: true,
-        panelFlag: false,
-        panelAmt: 100
+        settingY: 0,
+        show_setting: true,
+        show_selects: false,
+        selectsY: 100
       })
     }
 
   },
-  focus: function () {
+  //回车后消除input内容
+  clearinput:function(e){
     this.setData({
-      hintText: ""
-
-    })
-  },
-  onblur: function () {
-    var query = wx.createSelectorQuery()
-    query.select('.inputtext')
-    this.setData({
-      hintText: "点击空白处隐藏"
+      userInput: ''
     })
   },
   /**
@@ -300,7 +285,7 @@ Page({
     this.data.animation = animation;
 
     //初始化速度
-    this.data.currentSpeed = this.data.windowHeight * 2 / this.data.speedArr[this.data.speedIndex].value;
+    this.data.currentSpeed = this.data.windowHeight * 2 / this.data.speedlist[this.data.speedIndex].value;
 
     this.updateScroll();
   },
