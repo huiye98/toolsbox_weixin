@@ -1,16 +1,23 @@
-<!--toolsbox/pages/aboutMe/aboutMe.wxml-->
+<!-- toolsbox/pages/aboutMe/aboutMe.wxml -->
 <!-- <text>toolsbox/pages/aboutMe/aboutMe.wxml</text> -->
-
 <!-- 头像，用户名 -->
+<view class='uploader avatarInfo'>
+  <open-data class='avatar' type='userAvatarUrl'></open-data>
+  <open-data class='name' type='userNickName'></open-data>
+  <!-- <image class='downArrow' src='/img/down.png'></image> -->
+</view>
 <!-- 小程序码 -->
-<view class="guide">
+<view class="codeimg">
   <image src="{{wxacodeSrc}}" mode="aspectFit"></image>
 </view>
-<button open-type="contact" class="uploader-text">点击咨询 ToolsBox 客服</button>
+<button open-type="contact" class="uploader-text">咨询客服</button>
 <view class="uploader">
   <navigator url="../im/room/room" open-type="navigate" class="uploader-text">
     <text>少年，聊个五毛钱？</text>
   </navigator>
 </view>
-
+<view class='uploader'>
+  <text class="copyright">版权：叶慧/徐卫霞</text>
+  <!-- <image class='downArrow' src='/img/down.png'></image> -->
+</view>
 <!-- 使用weui里面的扩展组件，json里面写了use component ，用<map-dialog> 使用 -->

@@ -155,7 +155,7 @@ button {
 button.userinfo {
   background: darkturquoise;
   color: aliceblue;
-  padding: 0 100rpx;
+  padding: 20rpx;
   border: 1px solid #ddd;
   border-radius: 20px;
 }

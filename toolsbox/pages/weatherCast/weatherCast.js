@@ -59,31 +59,31 @@ Page({
     setting: {},
     bcgImgList: [
       {
-        src: '/img/qing.jpg',
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-sunny-big.png',//晴
         topColor: '#0085e5'
       },
       {
-        src: '/img/yu.jpg',
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-pouring-big.png',//下雨
         topColor: '#0e202c'
       },
       {
-        src: '/img/xue.jpg',
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-snowy-big.png',//下雪
         topColor: '#0f0e1c'
       },
       {
-        src: '/img/yun.jpg',
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-cloudy-big.png',//多云
         topColor: '#004092'
       },
       {
-        src: '/img/wu.jpg',
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-fog-big.png',//雾
         topColor: '#d3ebf5'
       },
       {
-        src: '/img/yin.jpg',
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-yin-big.png',//阴
         topColor: '#2d2225'
       },
       {
-        src: '/img/bg5.jpg',
+        src: 'cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/images/weather-cloudy-big.png',//默认
         topColor: '#b8bab9'
       },
     ],

@@ -77,7 +77,7 @@
         open-type="getUserInfo" 
         bindgetuserinfo="onGetUserInfo"
         class="userinfo"
-      >登录后发送消息</button>
+      >加入群聊</button>
     </view>
   </view>
 
