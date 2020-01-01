@@ -28,9 +28,6 @@
       </view>
       <!-- <view class='temp num' decode='true'>{{cityDatas.now.tmp || '-'}}<text style='font-size:50rpx;position:relative;top:-20px;'>℃</text></view> -->
       <view class='weather' style="margin-top:10rpx">{{cityDatas.now.cond_txt || '--'}}, {{cityDatas.now.tmp || '-'}} ℃</view>
-      <view class='pm'>
-        <text>能见度 {{cityDatas.now.vis}}</text>
-      </view>
     </view>
     <view class='guide' wx:if='{{cityDatas.daily_forecast}}'>
       <view class='title'>7 天预报</view>
