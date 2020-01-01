@@ -6,8 +6,52 @@ page {
   flex-direction: column;
   justify-content: flex-start;
 }
+.logo{
+width: 200rpx;
+height: 200rpx;
+align-self: center;
 
-.userinfo, .uploader, .tunnel {
+}
+.container{
+  width:100%;
+  margin-top: 100rpx;
+  /* margin:0px 10rpx 30rpx 30rpx */
+}
+.typename{
+  font-size: 35rpx;
+}
+.mytaglist{
+  display: flex;
+  flex-direction: row
+}
+.mytag{
+  width: 30%;
+  height: 200rpx;
+  margin: 20rpx;
+}
+.icon{
+  height:80rpx;
+  width:100rpx;
+  align-self: center;
+}
+.mytag-text{
+  width: 100%;
+  /* line-height: 52px; */
+  font-size: 25rpx;
+  color:black;
+  /* color: #007aff; */
+  display: flex;
+  text-align: center;
+  flex-direction: column
+}
+.mytag-text text{
+  height:30rpx;
+  margin-top:10rpx;
+}
+
+
+
+.userinfo,  .tunnel {
   margin-top: 40rpx;
   height: 140rpx;
   width: 100%;
@@ -60,8 +104,8 @@ page {
 .userinfo-nickname-wrapper {
   flex: 1;
 }
-
-.uploader, .tunnel {
+/* //.mytag,  */
+.tunnel {
   height: auto;
   padding: 0 0 0 40rpx;
   flex-direction: column;
@@ -69,14 +113,14 @@ page {
   box-sizing: border-box;
 }
 
-.uploader-text, .tunnel-text {
+/* .mytag-text, .tunnel-text {
   width: 100%;
   line-height: 52px;
   font-size: 34rpx;
   color: #007aff;
-}
+} */
 
-.uploader-container {
+.mytag-container {
   width: 100%;
   height: 400rpx;
   padding: 20rpx 20rpx 20rpx 0;
@@ -87,7 +131,7 @@ page {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.uploader-image {
+.mytag-image {
   width: 100%;
   height: 360rpx;
 }

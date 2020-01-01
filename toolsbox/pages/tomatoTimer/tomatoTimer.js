@@ -18,8 +18,8 @@ Page({
     hours: hours,
     hour: 0,
     minutes: minutes,
-    minute: 0,
-    value: [0,1],
+    minute: 25,
+    value: [0,24],
     showlist:[
       {
         id: 'select-bar',
@@ -27,13 +27,14 @@ Page({
       },
       {
         id: 'tomatotimer',
-        show:false
+        show:true
       }
     ],
     showIndex:1,//true为显示倒计时界面，false为设置倒计时长
-    nowtime:"00:00:00",
-    seconds:0,
-    timer:''
+    nowtime:"00:25:00",
+    seconds:1500,
+    timer:'',
+    status:'启动'
   },
   bindChange: function (e) {
     const val = e.detail.value
@@ -57,6 +58,20 @@ Page({
     this.setData({
       nowtime: hour + ":" + minute + ":" + second
     })
+  },
+  operateTime:function(){
+    if(this.data.status=='暂停'){
+      this.setData({
+        status:"启动"
+      })
+      clearInterval(this.data.timer)
+    }
+    else{
+      this.setData({
+        status: "暂停"
+      })
+      this.changeTime()
+    }
   },
   changeTime:function(){
     if (this.data.showIndex == 0 || this.data.seconds==0){
@@ -83,6 +98,10 @@ Page({
     })
   },
   selectTime: function (e) {
+    clearInterval(this.data.timer)
+    this.setData({
+      status: "启动"
+    })
     var query = wx.createSelectorQuery()
     var index = this.data.showIndex
     var before = 'showlist[' + index + '].show'
@@ -93,7 +112,7 @@ Page({
       [before]: false,
       [after]: true
     })
-    this.changeTime();
+    this.setTime()
   },
   /**
    * 生命周期函数--监听页面加载
