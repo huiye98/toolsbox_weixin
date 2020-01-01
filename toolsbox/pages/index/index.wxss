@@ -7,7 +7,7 @@ page {
   justify-content: flex-start;
 }
 .logo{
-  width: 200rpx;
+width: 200rpx;
 height: 200rpx;
 align-self: center;
 
@@ -20,11 +20,11 @@ align-self: center;
 .typename{
   font-size: 35rpx;
 }
-.uploaderlist{
+.mytaglist{
   display: flex;
   flex-direction: row
 }
-.uploader{
+.mytag{
   width: 30%;
   height: 200rpx;
   margin: 20rpx;
@@ -34,7 +34,7 @@ align-self: center;
   width:100rpx;
   align-self: center;
 }
-.uploader-text{
+.mytag-text{
   width: 100%;
   /* line-height: 52px; */
   font-size: 25rpx;
@@ -44,7 +44,7 @@ align-self: center;
   text-align: center;
   flex-direction: column
 }
-.uploader-text text{
+.mytag-text text{
   height:30rpx;
   margin-top:10rpx;
 }
@@ -104,7 +104,7 @@ align-self: center;
 .userinfo-nickname-wrapper {
   flex: 1;
 }
-/* //.uploader,  */
+/* //.mytag,  */
 .tunnel {
   height: auto;
   padding: 0 0 0 40rpx;
@@ -113,14 +113,14 @@ align-self: center;
   box-sizing: border-box;
 }
 
-/* .uploader-text, .tunnel-text {
+/* .mytag-text, .tunnel-text {
   width: 100%;
   line-height: 52px;
   font-size: 34rpx;
   color: #007aff;
 } */
 
-.uploader-container {
+.mytag-container {
   width: 100%;
   height: 400rpx;
   padding: 20rpx 20rpx 20rpx 0;
@@ -131,7 +131,7 @@ align-self: center;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.uploader-image {
+.mytag-image {
   width: 100%;
   height: 360rpx;
 }
