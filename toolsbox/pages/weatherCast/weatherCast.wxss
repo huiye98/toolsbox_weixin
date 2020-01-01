@@ -206,8 +206,8 @@ page {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding: 0 50rpx;
-  font-size: 66rpx;
+  padding: 0 40rpx;
+  font-size: 40rpx;
 }
 
 .city .name {
@@ -217,7 +217,7 @@ page {
 }
 
 .city .name .val {
-  max-width: 5em;
+  max-width: 10em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -241,6 +241,7 @@ page {
   display: block;
   text-align: right;
   font-size: 24rpx;
+  color: dimgray;
 }
 
 .message {

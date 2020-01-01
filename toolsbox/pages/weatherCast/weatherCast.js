@@ -90,7 +90,7 @@ Page({
     bcgImgIndex: 0,
     bcgImg: '',
     bcgImgAreaShow: false,
-    bcgColor: '#2d2225',
+    bcgColor: '#018cf2',
     // 粗暴直接：移除后再创建，达到初始化组件的作用
     showHeartbeat: true,
     // heartbeat 时禁止搜索，防止动画执行
@@ -370,7 +370,7 @@ Page({
     })
   },
   setNavigationBarColor(color) {
-    let bcgColor = color || this.data.bcgColor
+    let bcgColor = this.data.bcgColor
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
       backgroundColor: this.data.bcgColor,
