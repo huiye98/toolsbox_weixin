@@ -12,9 +12,9 @@
     <!-- <br /> -->
     <view class="page__bd">
       <mp-form id="form">
-        <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cells weui-cells_after-title" style='background:rgba(0, 0, 0, 0)'>
           <view class="weui-cell">
-            <view class="weui-cell__bd">
+            <view class="weui-cell__bd" >
               <input bindinput="themeChange" class="weui-input" placeholder="请输入主题,如学号为几的同学答题" />
             </view>
           </view>

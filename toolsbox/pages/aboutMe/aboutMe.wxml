@@ -12,7 +12,7 @@
 </view>
 <button open-type="contact" class="uploader-text">咨询客服</button>
 <view class="uploader">
-  <navigator url="../im/room/room" open-type="navigate" class="uploader-text">
+  <navigator url="../room/room" open-type="navigate" class="uploader-text">
     <text>少年，聊个五毛钱？</text>
   </navigator>
 </view>
