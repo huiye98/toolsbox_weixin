@@ -338,7 +338,6 @@ Page({
     this.getCityDatas()
     this.reloadInitSetting()
     this.reloadWeather()
-    this.reloadGetBroadcast()
   },
   checkUpdate(setting) {
     // 兼容低版本
