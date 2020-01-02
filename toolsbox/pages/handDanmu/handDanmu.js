@@ -5,6 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loading: false,
+    color: '#000',
+    background: '#d8d4d4',
+    show: true,
+    animated: false,
     displayText: "弹幕来袭",
     show_selects: false,
     show_setting: true,
@@ -86,10 +91,10 @@ Page({
     this.setData({
       windowHeight: wx.getSystemInfoSync().windowHeight
     });
-    wx.setNavigationBarColor({
-      frontColor: '#ffffff',
-      backgroundColor: "#d8d4d4",
-    })
+    // wx.setNavigationBarColor({
+    //   frontColor: '#ffffff',
+    //   backgroundColor: "#d8d4d4",
+    // })
   },
 
   //计算文本长度，从而计算速度
@@ -256,6 +261,9 @@ Page({
         show_setting: false,
         show_selects: false,
         selectsY: 100
+      });
+      this.setData({
+        show: false
       })
     } else {
       this.setData({
@@ -263,6 +271,9 @@ Page({
         show_setting: true,
         show_selects: false,
         selectsY: 100
+      });
+      this.setData({
+        show: true
       })
     }
 

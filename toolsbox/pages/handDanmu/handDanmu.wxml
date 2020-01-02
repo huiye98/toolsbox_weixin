@@ -1,3 +1,5 @@
+<mp-navigation-bar loading="{{loading}}" show="{{show}}" animated="{{animated}}" color="{{color}}" background="{{background}}" title="手持弹幕" back="{{true}}"></mp-navigation-bar>
+
 <view class="container" bindtap="switchbar">
   <text class='danmu' animation="{{Scroll}}" style='animation-play-state:{{is_paused?"paused":"running"}};color:{{colorlist[colorIndex].value}};font-size:{{sizelist[sizeIndex].value}}vw;'>{{displayText}}</text>
 </view>

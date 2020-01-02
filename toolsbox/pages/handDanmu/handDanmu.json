@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "手持弹幕"
+  "usingComponents": {
+    "mp-navigation-bar": "/weui-miniprogram/navigation-bar/navigation-bar"
+  },
+  "navigationBarTitleText": "手持弹幕",
+  "navigationStyle": "custom"
 }
