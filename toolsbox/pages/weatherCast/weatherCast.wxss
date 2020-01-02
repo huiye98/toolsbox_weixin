@@ -90,7 +90,7 @@ page {
 }
 
 .big-weather image{
-  width: 200rpx;
+  width: 220rpx;
   height: 200rpx;
 }
 

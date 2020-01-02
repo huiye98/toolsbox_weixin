@@ -17,13 +17,13 @@ Page({
       wxacodeSrc: '',
       wxacodeResult: '',
     })
-    const fileID = wx.getStorageSync('wxacodeCloudID')
+    const fileID = "cloud://toolslbox-ymyjc.746f-toolslbox-ymyjc-1301022209/wxacode_default_openapi_page.jpeg"
 
     if (fileID) {
       this.setData({
         wxacodeSrc: fileID,
       })
-      console.log(`从本地缓存中取得了小程序码的云文件 ID：${fileID}`)
+      console.log(`云存储的云文件 ID：${fileID}`)
     } else {
       wx.cloud.callFunction({
         name: 'openapi',

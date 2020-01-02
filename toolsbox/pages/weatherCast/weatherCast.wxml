@@ -35,7 +35,7 @@
       <view class='guides'>
         <view class='item' wx:for='{{cityDatas.daily_forecast}}' wx:key='{{index}}'>
           <view class='date i'>{{item.date}}</view>
-          <view class='temperature i'>{{item.tmp_max}}~{{item.tmp_min}}℃</view>
+          <view class='temperature i'>{{item.tmp_max}} ~ {{item.tmp_min}}℃</view>
           <view class='weather i'>
             <text>{{item.cond_txt_d}}</text>
             <image mode='widthFix' src='{{weatherIconUrl}}{{item.cond_code_d}}.png'></image>

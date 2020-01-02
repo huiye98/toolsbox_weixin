@@ -244,7 +244,7 @@ Component({
                     imgFileID: res.fileID,
                   },
                 })
-              }, '发送图片失败')
+              }, '发送图片成功')
             },
             fail: e => {
               this.showError('发送图片失败', e)
